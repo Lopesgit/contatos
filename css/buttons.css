@@ -1,0 +1,77 @@
+/* 
+    Document   : buttons
+    Created on : 05/09/2013, 21:04:11
+    Author     : Sammy Guergachi <sguergachi at gmail.com>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+button {
+    font: 13px Helvetica, arial, freesans, clean, sans-serif;
+    line-height: 1.4;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button {
+	text-align: center;
+	cursor: default;
+	/**color: buttontext; */
+	padding: 2px 6px 3px;
+	border: 2px outset buttonface;
+         letter-spacing: normal;
+        text-indent: 0;
+        text-shadow: none;
+        text-transform: none;
+        word-spacing: normal;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+	white-space: pre;
+}
+
+.button, .button-clean, .minibutton {
+	position: relative;
+	display: inline-block;
+	padding: 7px 15px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #333;
+	text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+	white-space: nowrap;
+	background-color: #eaeaea;
+	background-repeat: repeat-x;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	border-bottom-color: #c5c5c5;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.075);
+	vertical-align: middle;
+	cursor: pointer;
+	width: 60px;
+	height: 35px;
+	text-align: center;
+}
+
+.button-clean:hover{
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	background-color: #D2691E;
+	background-repeat: repeat-x;
+	border-color: #A52A2A;
+}
+
+.button:hover, .button:active, .minibutton:hover, .minibutton:active {
+	color: #fff;
+	text-decoration: none;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	background-color: #3072b3;
+	background-repeat: repeat-x;
+	border-color: #2a65a0;
+}
+.button, .button-clena, .minibutton {
+	outline: none;
+}
