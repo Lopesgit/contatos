@@ -13,7 +13,7 @@ header ('Content-type: text/html; charset=UTF-8');
      * you want to insert a non-database field (for example a counter or static image)
      */
     $aColumns = array('pessoa_nome', 'filial_nome', 'depto_nome', 'pessoa_email', 'pessoa_ramal', 
-                        'pessoa_ramaldireto', 'pessoa_celulartim', 'pessoa_nextel', 'status_desc');
+                        'pessoa_ramaldireto', 'pessoa_celulartim', 'pessoa_nextel');
 
     /* Indexed column (used for fast and accurate table cardinality) */
     $sIndexColumn = "id_pessoa";
@@ -24,9 +24,7 @@ header ('Content-type: text/html; charset=UTF-8');
     $sInner = " INNER JOIN
                     filiais f ON f.id_filial = p.pessoa_filial
                 INNER JOIN
-                    deptos d ON d.id_depto = p.pessoa_depto
-                INNER JOIN
-                    status s ON s.idstatus = p.pessoa_status ";
+                    deptos d ON d.id_depto = p.pessoa_depto";
 
     /* Database connection information */
     require 'connection.php';
@@ -73,7 +71,8 @@ header ('Content-type: text/html; charset=UTF-8');
      * word by word on any field. It's possible to do here, but concerned about efficiency
      * on very large tables, and MySQL's regex functionality is very limited
      */
-    $sWhere = "";
+    
+    
     if ( isset($_GET['sSearch']) && $_GET['sSearch'] != "" )
     {
             $sWhere = "WHERE (";
@@ -101,7 +100,16 @@ header ('Content-type: text/html; charset=UTF-8');
                     $sWhere .= "`".$aColumns[$i]."` LIKE '%".utf8_decode($gaSql['link']->real_escape_string($_GET['sSearch_'.$i]))."%' ";
             }
     }
-
+    
+    if ( $sWhere == "" )
+    {
+            $sWhere2 = "WHERE ";
+    }
+    else
+    {
+            $sWhere2 = " AND ";
+    }
+    $sWhere2 .= "p.pessoa_status = 1"; 
 
     /*
      * SQL queries
@@ -112,6 +120,7 @@ header ('Content-type: text/html; charset=UTF-8');
             FROM   $sTable
             $sInner    
             $sWhere
+            $sWhere2
             $sOrder
             $sLimit
             ";

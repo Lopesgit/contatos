@@ -36,7 +36,7 @@ if($_REQUEST['action'] == "SELECT"){
             {
                     if ( $aColumns[$i] != ' ' )
                     {      
-                        $row[$aColumns[$i]] = $aRow[ $aColumns[$i] ];                      
+                        $row[$aColumns[$i]] = utf8_encode($aRow[ $aColumns[$i] ]);                      
                             
                     }
             }

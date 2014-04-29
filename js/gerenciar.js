@@ -6,8 +6,7 @@ $(document).ready( function () {
   var rowName = null;
   var action = null;
   var msg = null;
-  var salvar = false;
-  var deletar = false;
+  var pessoaName = null;
   
   
   var oTable = $('#tb_func').dataTable({  
@@ -72,7 +71,8 @@ $(document).ready( function () {
     });
     
     $("#tb_func tbody ").on('click', '#edit', function(event){
-        $("#dialog-form").dialog('option', 'title', 'Alterar o cadastro de ' + rowName);
+        pessoaName = rowName;
+        $("#dialog-form").dialog('option', 'title', 'Alterar o cadastro de ' + pessoaName);
         $("#lb_status").show();
         $("#status").show();
         
@@ -100,8 +100,9 @@ $(document).ready( function () {
     });
     
     $("#tb_func tbody ").on('click', '#delete', function(event){
+        pessoaName = rowName;
         action = "DELETE";
-        $("#msg-conf").html("Deseja realmente excluir o registro de " + rowName + " ?");
+        $("#msg-conf").html("Deseja realmente excluir o registro de " + pessoaName + " ?");
         $( "#dialog-confirm" ).dialog( "open" );
     });
     
@@ -211,9 +212,9 @@ $(document).ready( function () {
             function(data){
                 
                 if(data && action === "UPDATE"){
-                    msg = "Contato de " + rowName + " alterado com sucesso!";
+                    msg = "Contato de " + pessoaName + " alterado com sucesso!";
                 } else if(data && action === "INSERT"){
-                    msg = "Novo contato para " + rowName + " gravado com sucesso!";
+                    msg = "Novo contato gravado com sucesso!";
                 } else{
                     msg = "Erro " + data + " ao salvar as alterações!";  
                 }               
@@ -273,7 +274,7 @@ $(document).ready( function () {
            {id: rowSelected, action: action },
             function(data){
                 if(data && action === "DELETE"){
-                    msg = "Contato de " + rowName + " excluído com sucesso!";
+                    msg = "Contato de " + pessoaName + " excluído com sucesso!";
                     deletar = true;
                 } else {
                     msg = "Erro " + data + " ao salvar as alterações!";  
