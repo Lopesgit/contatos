@@ -98,7 +98,7 @@ $rStatus = $gaSql['link']->query($qStatus);
             <div class="form_description">
                 <div id="div_img">   
                     <h2>Gerenciar Contatos</h2>
-                    <p>Permite listar, inserir, alterar e excluir contatos da flecha de prata que são exibidos na intranet.</p>
+                    <p>Permite listar, inserir, alterar e excluir contatos da Flecha de Prata que são exibidos na intranet.</p>
                     <button id="contatoNovo" name="contatoNovo">Novo Contato</button>
                 </div>
             </div>
