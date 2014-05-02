@@ -648,6 +648,17 @@ ul.password{
 
 }
 
+
+
+#atualizarLista{
+    width: 125px;
+    margin-right: 200px;
+    margin-top: -50px;
+    float:  right;
+    width: 165px;
+    position: relative;
+}
+
 .large-text{
     width: 23%;
 }
@@ -694,7 +705,7 @@ ul.password{
     
 }
 
-#edit, #delete, #contatoNovo{
+#edit, #delete, #contatoNovo, #atualizarLista{
     cursor: pointer;
 }
 

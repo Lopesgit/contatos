@@ -16,7 +16,7 @@ header ('Content-type: text/html; charset=UTF-8');
         <link rel="stylesheet" type="text/css" href="./css/blitzer/jquery-ui-1.10.4.custom.min.css"/>
         <link rel="stylesheet" type="text/css" href="./css/jquery.tooltip.css"/>
         <script type="text/javascript" charset="utf-8" src="./js/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" charset="iso-8859-1" src="./js/index.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./js/index.js"></script>
         <script type="text/javascript" charset="utf-8" src="./js/jquery.dataTables.min.js"></script>
         <script type="text/javascript" charset="utf-8" src="./js/jquery.tooltip.js"></script>
         <script type="text/javascript" charset="utf-8" src="./js/jquery-ui-1.10.4.custom.min.js"></script>  

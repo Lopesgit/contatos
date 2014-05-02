@@ -302,15 +302,35 @@ $(document).ready( function () {
             $( this ).dialog( "close" );
         }
       },
-      close: function() {
-        window.location.reload();  
+      close: function() {  
       }
     }); 
+    
+    $("#atualizarLista").button().click(function() {
+        window.location.reload(); 
+    });
     
     $('#nome').keyup(function() {
         this.value = this.value.toLocaleUpperCase();
     });
-    $("#ramal").mask('9999'); 
+    $("#ramal").focusout(function(){
+        var ramal, element;
+        element = $(this);
+        element.unmask();
+        ramal = element.val().replace(/\D/g, '');
+        if(ramal.length === 1) {
+            element.mask("9?999"); 
+        } else {
+            element.mask("9999");
+        }
+    }).trigger('focusout');
+    
+    $("#email").focusout(function(){       
+        if($(this).val().indexOf('@') === -1){
+            $(this).val($(this).val() + "@flechadeprata.com.br");   
+        }     
+    }).trigger('focusout');
+
     $("#ramal_direto").mask('(99) 9999-9999'); 
     $("#cel_tim").focusout(function(){
         var phone, element;
